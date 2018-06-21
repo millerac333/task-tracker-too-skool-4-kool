@@ -1,3 +1,6 @@
+const localStorageFunctions = require("./localStorage");
+console.log(localStorageFunctions);
+
 
 const taskData = [];
 
@@ -38,7 +41,14 @@ const createTask = (tName, tDescription, tDate, ctDate, tlocation) => {
     newTask.Date_Created = ctDate
     newTask.Task_Location = tlocation
     taskData.push(newTask)
+    localStorageFunctions.saveDatabase(taskData, "Task Array")
 }
+
+
+createTask("asdfde", "dfasefes", "sdfasdf")
+createTask("feed the dog", "two cups from the yellow bag", "6/21/2018", "6/19/2018", "To Do")
+
+console.log(taskData);
 
 module.exports = createTask;
 
